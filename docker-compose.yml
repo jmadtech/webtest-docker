@@ -9,7 +9,7 @@ services:
     # links:
     #   - neo4j
     ports:
-      - "80:80"
+      - "80:8001"
     command: > 
       bash -c "go get github.com/gorilla/mux &&
       go get github.com/urfave/negroni &&
