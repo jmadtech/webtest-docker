@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+  server:
+    image: golang
+    volumes:
+      - .:/go/src/go-with-compose
+    working_dir: /go/src/go-with-compose
+    # links:
+    #   - neo4j
+    ports:
+      - "8080:8001"
+    command: > 
+      bash -c "go get github.com/gorilla/mux &&
+      go get github.com/urfave/negroni &&
+      go run main.go"
+  # neo4j:
+  #   image: neo4j
+  #   ports:
+  #     - "17687:7687"
+  #     - "17474:7474"
+  #   volumes:                  ## adds folder with login/password
+  #    - ./db/dbms:/data/dbms
